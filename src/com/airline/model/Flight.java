@@ -21,7 +21,7 @@ public class Flight {
 				+ ", totalSeats= " + totalSeats + ", availableSeats= " + availableSeats + "]";
 	}
 	
-	public boolean bookSeat() {
+	public synchronized boolean bookSeat() {
 		if(this.availableSeats > 0) {
 			this.availableSeats--;
 			return true;
@@ -43,5 +43,9 @@ public class Flight {
 
     public String getDestination() {
         return this.destination;
+    }
+    
+    public int getAvailableSeats() {
+        return this.availableSeats;
     }
 }

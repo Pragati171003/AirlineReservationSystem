@@ -1,4 +1,6 @@
 package com.airline.main;
+import java.util.*;
+import com.airline.concurrency.BookingTask;
 
 import com.airline.model.Flight;
 import com.airline.model.Passenger;
@@ -28,6 +30,34 @@ public class AirlineReservationSystem {
 		System.out.println("\nFinal Flight Status:");
         System.out.println(flight1);
         System.out.println(flight2);
+        //runConcurrencyTest();
 	}
+	
+	/*public static void runConcurrencyTest() {
+		Flight f3 = new Flight("BFVS3","DCH","DHBSN",2);
+		BookingService bs2 = new BookingService();
+		List<Thread> threads = new ArrayList<>();
+		
 
+		for(int i = 0; i < 10; i++) {
+			for (int j = 1; j <= 1; j++) {
+	            Passenger passenger = new Passenger("Passenger " + i, "p" + i + "@email.com");
+	            BookingTask task = new BookingTask(passenger, f3,bs2);
+	            Thread thread = new Thread(task);
+	            threads.add(thread);
+	        }
+		}
+		
+		for (Thread t : threads) {
+            t.start(); 
+        }
+		
+        try {
+            for (Thread t : threads) {
+                t.join(); 
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+	}*/
 }
